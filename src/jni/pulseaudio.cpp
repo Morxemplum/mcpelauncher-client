@@ -52,7 +52,7 @@ void AudioDevice::write(std::shared_ptr<FakeJni::JByteArray> data, FakeJni::JInt
 
 void AudioDevice::write2(std::shared_ptr<FakeJni::JShortArray> data, FakeJni::JInt length) {
     int error = 0;
-    if(s && pa_simple_write(s, data->getArray(), length, &error)) {
+    if(s && pa_simple_write(s, data->getArray(), length * 2, &error)) {
         pa_simple_free(s);
         s = nullptr;
         auto errormsg = pa_strerror(error);
