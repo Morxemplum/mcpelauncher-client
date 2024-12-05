@@ -32,7 +32,7 @@ if(TARGET SDL3::SDL3)
 endif()
 
 if (NOT USE_SDL3_AUDIO)
-    find_package(PulseAudio REQUIRED)
+    find_package(PulseAudio)
     message(STATUS "USING EXPERIMENTAL PULSEAUDIO BACKEND")
     if (PULSEAUDIO_FOUND AND PULSEAUDIOSIMPLE_FOUND)
         target_sources(mcpelauncher-client PRIVATE src/jni/pulseaudio.cpp src/jni/pulseaudio.h)
